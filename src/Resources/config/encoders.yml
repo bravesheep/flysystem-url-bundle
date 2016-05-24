@@ -1,0 +1,15 @@
+services:
+  bravesheep_flysystem_url.encoder_registry:
+    class: Bravesheep\FlysystemUrlBundle\Encoder\EncoderRegistry
+
+  # Encoders
+  bravesheep_flysystem_url.encoder.oneup_flysystem:
+    class: Bravesheep\FlysystemUrlBundle\Encoder\OneupFlysystemEncoder
+    tags: [{name: bravesheep_flysystem_url.encoder, alias: oneup_flysystem}]
+
+  bravesheep_flysystem_url.encoder.url_prefix:
+    class: Bravesheep\FlysystemUrlBundle\Encoder\PublicUrlPrefixEncoder
+    arguments:
+      - %public_url_prefix.web_dir%
+      - %public_url_prefix.default%
+    tags: [{name: bravesheep_flysystem_url.encoder, alias: public_url_prefix}]

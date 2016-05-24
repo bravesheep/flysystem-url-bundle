@@ -1,0 +1,40 @@
+services:
+  bravesheep_flysystem_url.resolver:
+    class: Bravesheep\FlysystemUrlBundle\Resolver\ResolverChain
+
+  # Resolvers
+  bravesheep_flysystem_url.resolver.local:
+    class: Bravesheep\FlysystemUrlBundle\Resolver\LocalUrlResolver
+    tags: [{name: bravesheep_flysystem_url.resolver}]
+
+  bravesheep_flysystem_url.resolver.awss3v3:
+    class: Bravesheep\FlysystemUrlBundle\Resolver\AwsS3v3UrlResolver
+    tags: [{name: bravesheep_flysystem_url.resolver}]
+
+  bravesheep_flysystem_url.resolver.awss3v2:
+    class: Bravesheep\FlysystemUrlBundle\Resolver\AwsS3v2UrlResolver
+    tags: [{name: bravesheep_flysystem_url.resolver}]
+
+  bravesheep_flysystem_url.resolver.dropbox:
+    class: Bravesheep\FlysystemUrlBundle\Resolver\DropboxUrlResolver
+    tags: [{name: bravesheep_flysystem_url.resolver}]
+
+  bravesheep_flysystem_url.resolver.zip:
+    class: Bravesheep\FlysystemUrlBundle\Resolver\ZipArchiveUrlResolver
+    tags: [{name: bravesheep_flysystem_url.resolver}]
+
+  bravesheep_flysystem_url.resolver.ftp:
+    class: Bravesheep\FlysystemUrlBundle\Resolver\FtpUrlResolver
+    tags: [{name: bravesheep_flysystem_url.resolver}]
+
+  bravesheep_flysystem_url.resolver.null:
+    class: Bravesheep\FlysystemUrlBundle\Resolver\NullUrlResolver
+    tags: [{name: bravesheep_flysystem_url.resolver}]
+
+  bravesheep_flysystem_url.resolver.sftp:
+    class: Bravesheep\FlysystemUrlBundle\Resolver\SftpUrlResolver
+    tags: [{name: bravesheep_flysystem_url.resolver}]
+
+  bravesheep_flysystem_url.resolver.webdav:
+    class: Bravesheep\FlysystemUrlBundle\Resolver\WebdavUrlResolver
+    tags: [{name: bravesheep_flysystem_url.resolver}]

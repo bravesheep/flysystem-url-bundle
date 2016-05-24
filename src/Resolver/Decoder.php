@@ -33,7 +33,7 @@ class Decoder
                 if (ProtocolMapping::shouldTryAsFile($protocol)) {
                     $data = parse_url('file://' . $rest);
                 } else {
-                    $data = self::decode($url);
+                    $data = self::matchUrl($url);
                 }
 
                 if (false === $data) {
@@ -72,7 +72,7 @@ class Decoder
     public static function matchUrl($url)
     {
         $did_match = preg_match(
-            ',^(?<scheme>[a-zA-Z]+)://((?<userpass>.+?)@)?(?<domain>[a-zA-Z0-9.-]+)(:(?<port>[0-9]+))?(?<pathquery>/.*)?$,',
+            ',^(?<scheme>[a-zA-Z0-9]+)://((?<userpass>.+?)@)?(?<domain>[a-zA-Z0-9.-]+)(:(?<port>[0-9]+))?(?<pathquery>/.*)?$,',
             $url,
             $matches
         );

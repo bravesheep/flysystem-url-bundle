@@ -75,7 +75,7 @@ class PublicUrlPrefixEncoder implements EncoderInterface
      */
     private function getAwsParam(array $data)
     {
-        return "https://s3-{$data['host']}.amazonaws.com/{$data['path']}";
+        return "https://s3-{$data['host']}.amazonaws.com/{$data['clean_path']}";
     }
 
     /**

@@ -36,14 +36,14 @@ class AwsS3v3UrlResolver implements UrlResolverInterface
             throw new UrlResolveException("No secret (password) found in url");
         }
 
-        if (!isset($data['path'])) {
+        if (!isset($data['clean_path'])) {
             throw new UrlResolveException("No bucket name (path) found in url");
         }
 
         $region = $data['host'];
         $key = $data['user'];
         $secret = $data['pass'];
-        $bucket = $data['path'];
+        $bucket = $data['clean_path'];
 
         $adapterPrefix = null;
         if (isset($data['prefix'])) {

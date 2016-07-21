@@ -10,6 +10,6 @@ services:
   bravesheep_flysystem_url.encoder.url_prefix:
     class: Bravesheep\FlysystemUrlBundle\Encoder\PublicUrlPrefixEncoder
     arguments:
-      - %public_url_prefix.web_dir%
-      - %public_url_prefix.default%
+      - "%public_url_prefix.web_dir%"
+      - "%public_url_prefix.default%"
     tags: [{name: bravesheep_flysystem_url.encoder, alias: public_url_prefix}]
